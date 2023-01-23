@@ -10,6 +10,12 @@ on:
 #     - cron: '0 10 * * *'
 
 jobs:
+  job:
+    name: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: install
+      - run: echo "HI"
   scan:
     name: npm audit
     runs-on: ubuntu-latest
@@ -23,3 +29,9 @@ jobs:
           github_token: ${{ secrets.TOKEN }}
           issue_labels: vulnerability,test
           dedupe_issues: true
+  job:
+    name: deploy
+    runs-on: ubuntu-latest
+    steps:
+      - name: install
+      - run: echo "HI"
