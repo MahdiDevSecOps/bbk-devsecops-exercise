@@ -10,12 +10,14 @@ on:
 #     - cron: '0 10 * * *'
 
 jobs:
-  job:
-    name: build
+  bash-example:
     runs-on: ubuntu-latest
     steps:
-      - name: install
-      - run: echo "HI"
+      - name: Group of log lines
+        run: |
+            echo "::group::My title"
+            echo "Inside group"
+            echo "::endgroup::"
   scan:
     name: npm audit
     runs-on: ubuntu-latest
@@ -29,9 +31,11 @@ jobs:
           github_token: ${{ secrets.TOKEN }}
           issue_labels: vulnerability,test
           dedupe_issues: true
-  job:
-    name: deploy
+  bash-example:
     runs-on: ubuntu-latest
     steps:
-      - name: install
-      - run: echo "HI"
+      - name: Group of log lines
+        run: |
+            echo "::group::My title"
+            echo "Inside group"
+            echo "::endgroup::"
