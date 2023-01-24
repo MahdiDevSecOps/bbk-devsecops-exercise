@@ -6,7 +6,7 @@ on:
 jobs:
   bandit:
     uses: mdegis/bandit-action@v1
-      with: 
+    with: 
       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       path: "."
       level: high
