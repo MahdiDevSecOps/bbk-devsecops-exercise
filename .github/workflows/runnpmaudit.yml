@@ -5,6 +5,7 @@ on:
       - main
 jobs:
   bandit:
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
       - name: Run bandit
