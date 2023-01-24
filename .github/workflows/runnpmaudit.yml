@@ -1,41 +1,7 @@
-name: npm audit
-
-on:
-  pull_request:
-  push:
-    branches:
-      - main
-# on:
-#   schedule:
-#     - cron: '0 10 * * *'
-
-jobs:
-  bash-example:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Group of log lines
-        run: |
-            echo "::group::My title"
-            echo "Inside group"
-            echo "::endgroup::"
-  scan:
-    name: npm audit
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - name: install dependencies
-        run: npm ci
-      - uses: oke-py/npm-audit-action@v2
-        with:
-          audit_level: moderate
-          github_token: ${{ secrets.TOKEN }}
-          issue_labels: vulnerability,test
-          dedupe_issues: true
-  bash-example2:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Group of log lines
-        run: |
-            echo "::group::My title"
-            echo "Inside group"
-            echo "::endgroup::"
+uses: mdegis/bandit-action@v1
+with: 
+  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  path: "."
+  level: high
+  confidence: high
+  exit_zero: true
