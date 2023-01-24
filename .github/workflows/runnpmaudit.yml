@@ -1,7 +1,14 @@
-uses: mdegis/bandit-action@v1
-with: 
-  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-  path: "."
-  level: high
-  confidence: high
-  exit_zero: true
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+jobs:
+  bandit:
+    uses: mdegis/bandit-action@v1
+      with: 
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      path: "."
+      level: high
+      confidence: high
+      exit_zero: true
